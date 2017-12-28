@@ -3,6 +3,28 @@ body{
     padding: 0px;
 }
 
+#heading{
+    color: blue;
+    width: 100%;
+    height: 150px;
+    background: black;
+    position: absolute;
+    flex-direction: row;
+}
+
+.button{
+    color:white;
+}
+
+.logoutbutton{
+    color:white;
+}
+
+
+
+
+
+
 
 
 @media (max-width: 960px) {
