@@ -8,9 +8,14 @@ fetch("./kunder.json")
 .then(function(response) {
     return response.json();
 })
-then(function(ourUsers) {
+.then(function(ourUsers) {
     users = ourUsers;
 });
+
+$(".button").show();
+$(".forgotPassword").hide();
+$(".logOutButton").hide();
+
 
 if(sessionStorage.saveUser != null ){
     thisUserIsLoggedIn();
@@ -18,7 +23,11 @@ if(sessionStorage.saveUser != null ){
 
     $(".buttonForm").click(function(){
         for(var i = 0; i < users.length; i++){
-    
+            $(".button").hide();
+            $(".forgotPassword").hide();
+            $(".logOutButton").show();
+
+
         //Om password och username stämmer loggas användare in och sparas i sessionstorage
         if( $(".mailForm").val() == users[i].username && $(".passwordForm").val() == users[i].password){
 
@@ -36,6 +45,9 @@ if(sessionStorage.saveUser != null ){
 $(".logOutButton").click(function(){
     sessionStorage.removeItem("saveUser");
     location.reload();
+    $(".logOutButton").show();
+    $(".button").hide();
+    $(".forgotPassword").hide();
 
 
 });
@@ -73,5 +85,40 @@ $(".knapp4").click(function(){
     $(".div3").hide();
 });
 
+var date = new Date;
+var todaysDate = date.getDate();
+console.log(todaysDate);
+
+for (i = 1; i < 25; i++) {
+$(".flex-calender").append('<div class="lucka" id=' + i + '>Lucka ' + [i] + '</div>');      //for loop
+};
+
+$(".lucka").click(function() {          //funktion lucka
+console.log(this.id);
+console.log(todaysDate);
+
+if(todaysDate == this.id) {
+
+    fetch("http://quotes.stormconsultancy.co.uk/random.json")
+    .then(function(response) {
+        return response.json();
+    
+    })
+
+    .then(function(data) {
+        var quote = data;
+        console.log(quote.quote);
+
+
+        alert(quote.quote);
+
+    })
+} else {
+    alert("Fel Datum");
+
+}
+
+
+});
 
 });
