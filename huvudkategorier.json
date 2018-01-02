@@ -1,15 +1,19 @@
 [
     {
         "id": 1,
-        "countryname": "Gitarr"
+        "countryname": "Sadel",
+        "image": "sadel.png"
     },{
         "id": 2,
-        "countryname": "Bas"
+        "countryname": "Träns",
+        "image": "träns.jpg"
     },{
         "id": 3,
-        "countryname": "Klaviatur"
+        "countryname": "Hästtäcken",
+        "image": "hästtäcke.jpg"
     },{
         "id": 4,
-        "countryname": "Slagverk"
+        "countryname": "Stryck kappor",
+        "image": "benskydd.jpg"
     }
 ]

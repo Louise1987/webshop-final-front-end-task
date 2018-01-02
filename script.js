@@ -55,6 +55,7 @@ $(".logOutButton").click(function(){
 $(".div2").hide();
 $(".div3").hide();
 $(".div4").hide();
+$(".div5").hide();
 
 
 $(".knapp1").click(function(){
@@ -62,6 +63,7 @@ $(".knapp1").click(function(){
     $(".div2").hide();
     $(".div3").hide();
     $(".div4").hide();
+    $(".div5").hide();
 });
 
 $(".knapp2").click(function(){
@@ -69,6 +71,7 @@ $(".knapp2").click(function(){
     $(".div1").hide();
     $(".div3").hide();
     $(".div4").hide();
+    $(".div5").hide();
 });
 
 $(".knapp3").click(function(){
@@ -76,6 +79,7 @@ $(".knapp3").click(function(){
     $(".div1").hide();
     $(".div2").hide();
     $(".div4").hide();
+    $(".div5").hide();
 });
 
 $(".knapp4").click(function(){
@@ -83,42 +87,14 @@ $(".knapp4").click(function(){
     $(".div1").hide();
     $(".div2").hide();
     $(".div3").hide();
+    $(".div5").hide();
 });
 
-var date = new Date;
-var todaysDate = date.getDate();
-console.log(todaysDate);
-
-for (i = 1; i < 25; i++) {
-$(".flex-calender").append('<div class="lucka" id=' + i + '>Lucka ' + [i] + '</div>');      //for loop
-};
-
-$(".lucka").click(function() {          //funktion lucka
-console.log(this.id);
-console.log(todaysDate);
-
-if(todaysDate == this.id) {
-
-    fetch("http://quotes.stormconsultancy.co.uk/random.json")
-    .then(function(response) {
-        return response.json();
-    
-    })
-
-    .then(function(data) {
-        var quote = data;
-        console.log(quote.quote);
-
-
-        alert(quote.quote);
-
-    })
-} else {
-    alert("Fel Datum");
-
-}
-
-
+$(".knapp5").click(function(){
+    $(".div5").slideDown("1000");
+    $(".div1").hide();
+    $(".div2").hide();
+    $(".div3").hide();
+    $(".div4").hide();
 });
-
 });
