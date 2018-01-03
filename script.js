@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
 var users;
-var products;
+
 
 fetch("./kunder.json")
 .then(function(response) {
@@ -97,4 +97,24 @@ $(".knapp5").click(function(){
     $(".div3").hide();
     $(".div4").hide();
 });
+
+
+//********    underkategorier Handla   ************
+
+$("button").click(function(){
+    $.getJSON("./huvudkategorier.json", function(result){
+        $.each(result, function(i, field){
+            $(".shop").append(field.countryname + " ");
+        });
+    });
 });
+});
+
+
+
+
+
+
+
+
+

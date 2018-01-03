@@ -1,19 +1,19 @@
 [
     {
         "id": 1,
-        "countryname": "Sadel",
-        "image": "sadel.png"
+        "countryname": "Sadel"
+        
     },{
         "id": 2,
-        "countryname": "Träns",
-        "image": "träns.jpg"
+        "countryname": "Träns"
+        
     },{
         "id": 3,
-        "countryname": "Hästtäcken",
-        "image": "hästtäcke.jpg"
+        "countryname": "Hästtäcken"
+        
     },{
         "id": 4,
-        "countryname": "Stryck kappor",
-        "image": "benskydd.jpg"
+        "countryname": "Stryck kappor"
+        
     }
 ]
