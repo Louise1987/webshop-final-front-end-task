@@ -1,19 +1,19 @@
 [
     {
         "id": 1,
-        "countryname": "Sadel"
+        "mainCategory": "Sadel"
         
     },{
         "id": 2,
-        "countryname": "Träns"
+        "mainCategory": "Träns"
         
     },{
         "id": 3,
-        "countryname": "Hästtäcken"
+        "mainCategory": "Hästtäcken"
         
     },{
         "id": 4,
-        "countryname": "Stryck kappor"
+        "mainCategory": "Stryck kappor"
         
     }
 ]

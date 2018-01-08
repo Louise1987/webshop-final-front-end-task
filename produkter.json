@@ -1,10 +1,182 @@
 [
     {
         "id": 1,
-        "prodName": "Epiphone Les Paul Standard",
-        "prodDesc": "Elgitarr med kropp av mahogny och AAA-flammigt lönntopp, mahognyhals med greppbräda av rosewood och två ProBucker pickups.",
+        "prodName": "Hoppsadel",
+        "prodDesc": "Produkttext Hoppsadel.",
+        "image": "sadel.png",
         "prodPrice": 6999,
         "huvudKat": 1,
         "underKat": 1
+    },
+    {
+        "id": 2,
+        "prodName": "Dressyrsadel",
+        "prodDesc": "Produkttext dressyrsadel.",
+        "image": "sadel.png",
+        "prodPrice": 6999,
+        "huvudKat": 1,
+        "underKat": 2
+    },
+    {
+        "id": 3,
+        "prodName": "Allroundsadel",
+        "prodDesc": "Produkttext allroundsadel.",
+        "image": "sadel.png",
+        "prodPrice": 6999,
+        "huvudKat": 1,
+        "underKat": 3
+    },
+    {
+        "id": 4,
+        "prodName": "Tillbehör",
+        "prodDesc": "Produkttext tillbbehör.",
+        "image": "sadel.png",
+        "prodPrice": 6999,
+        "huvudKat": 1,
+        "underKat": 4
+    },
+    {
+        "id": 5,
+        "prodName": "Tyglar",
+        "prodDesc": "Produkttext tyglar.",
+        "image": "träns.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 2,
+        "underKat": 5
+    },
+    {
+        "id": 6,
+        "prodName": "Bett",
+        "prodDesc": "Produkttext bett.",
+        "image": "träns.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 2,
+        "underKat": 6
+    },
+    {
+        "id": 7,
+        "prodName": "Pannband",
+        "prodDesc": "Produkttext pannband.",
+        "image": "träns.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 2,
+        "underKat": 7
+    },
+    {
+        "id": 8,
+        "prodName": "Tillbehör",
+        "prodDesc": "Produkttext tillbehör.",
+        "image": "träns.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 2,
+        "underKat": 8
+    },
+    {
+        "id": 9,
+        "prodName": "Innetäcke",
+        "prodDesc": "Produkttext Innetäcke.",
+        "image": "hästtäcke.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 3,
+        "underKat": 9
+    },
+    {
+        "id": 10,
+        "prodName": "Utetäcke",
+        "prodDesc": "Produkttext Utetäcke.",
+        "image": "hästtäcke.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 3,
+        "underKat": 10
+    },
+    {
+        "id": 11,
+        "prodName": "Vintertäcke",
+        "prodDesc": "Produkttext Vintertäcke.",
+        "image": "hästtäcke.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 3,
+        "underKat": 11
+    },
+    {
+        "id": 12,
+        "prodName": "Ridtäcke",
+        "prodDesc": "Produckttext innetäcke.",
+        "image": "hästtäcke.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 3,
+        "underKat": 12
+    },
+    {
+        "id": 13,
+        "prodName": "Hoppskydd",
+        "prodDesc": "Produckttext innetäcke.",
+        "image": "benskydd.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 4,
+        "underKat": 13
+    },
+    {
+        "id": 14,
+        "prodName": "Dressyrskydd",
+        "prodDesc": "Produkttext dressyrskydd.",
+        "image": "benskydd.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 4,
+        "underKat": 14
+    },
+    {
+        "id": 15,
+        "prodName": "Fälttävlansskydd",
+        "prodDesc": "Produkttext fälttävlansskydd.",
+        "image": "benskydd.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 4,
+        "underKat": 15
+    },
+    {
+        "id": 16,
+        "prodName": "Tillbehör",
+        "prodDesc": "Produkttext Tillbehör.",
+        "image": "benskydd.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 4,
+        "underKat": 16
+    },
+    {
+        "id": 17,
+        "prodName": "Tillbehör1",
+        "prodDesc": "Tillbehör text1.",
+        "image": "benskydd.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 4,
+        "underKat": 16
+    },
+    {
+        "id": 18,
+        "prodName": "Tillbehör2",
+        "prodDesc": "Tillbehör text2.",
+        "image": "benskydd.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 4,
+        "underKat": 16
+    },
+    {
+        "id": 19,
+        "prodName": "Tillbehör3",
+        "prodDesc": "Tillbehör text3.",
+        "image": "benskydd.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 4,
+        "underKat": 16
+    },
+    {
+        "id": 20,
+        "prodName": "Tillbehör4",
+        "prodDesc": "Tillbehör text4.",
+        "image": "benskydd.jpg",
+        "prodPrice": 6999,
+        "huvudKat": 4,
+        "underKat": 16
     }
 ]

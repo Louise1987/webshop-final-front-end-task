@@ -1,0 +1,159 @@
+
+
+
+
+
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .grej{
+        border: solid black 1px;
+        margin: 10px;
+    }
+
+    .prodimg{
+        width: 50px;
+    }
+
+    .produktkort{
+        border: solid green 2px;
+        width: 150px;
+    }
+
+</style>
+
+<script>
+$(document).ready(function(){
+
+
+
+    fetch("huvudkategorier.json")
+        .then(function(response) {
+            return response.json();
+        
+        })
+
+        .then(function(data) {
+            var mainCategories = data;
+            console.log(mainCategories);
+
+
+            for (i = 0; i < mainCategories.length; i++) {
+                console.log("funka");
+                console.log(mainCategories[i].mainCategory);
+                $("#Handla").append('<button class="grej">' + mainCategories[i].mainCategory + '</button>');
+                
+            }                       
+
+    
+
+        })   
+
+        fetch("underkategorier.json") 
+            .then(function(response) {
+                return response.json();
+            })
+
+        .then(function(data) {
+            var subCategories = data;
+            console.log(subCategories);
+
+
+            for (i = 0; i < subCategories.length; i++) {
+                console.log("funka");
+                console.log(subCategories[i].subCategory);
+                //$("#Handla").append('<button class="grej">' + mainCategories[i].mainCategory + '</button>');
+                $("#underkategori").append('<div class="categori">' + subCategories[i].subCategory +'</div>');
+            }                                                           
+
+    });
+
+fetch("produkter.json")
+.then(function(response) {
+    return response.json();
+})
+
+.then(function(data) {
+    var prodName = data;
+    console.log(prodName);
+
+    for (i = 0; i < prodName.length; i++) {
+        console.log("funka");
+        console.log(prodName[i].prodName);
+        $("#produkt").append('<div class="produktkort"><img class="prodimg" src="image/' + prodName[i].image + '"><h2>' + prodName[i].prodName + '</h2><div class="prodDesc">' +prodName[i].prodDesc + '<div class="pris">Pris: ' + prodName[i].prodPrice + ' sek</div>');
+
+    }
+});
+
+//Hide Show under produktkategorin
+
+
+$(".grej")
+$(".categori").hide();
+  $(".produktkort").hide();
+
+
+  $(".grej").click(function(){
+    $(".categori").slideDown("1000") 
+    $(".produktkort").hide(); 
+    
+  });
+
+  /*var subCategories;
+  var prodName;
+
+  $(".categori").hide();
+  $(".produktkort").hide();
+
+  $("#underkategori").click(function(){
+
+    if ($(".categori").slideDown("1000")) {
+        $(".produktkort").hide();    
+  };
+
+  $("#produkt").click(function(){
+
+} else if ($(".categori").hide()) { 
+};*/
+                
+
+        
+        
+        
+    
+  
+});
+
+
+
+
+
+
+
+</script>
+
+</head>
+
+<body>
+
+    
+
+        <div id="Handla">Produkt</div>
+
+    <div id="underkategori">underkategori</div>
+
+    <div id="produkt">Produkter</div>
+
+</body>
+
+</html>
