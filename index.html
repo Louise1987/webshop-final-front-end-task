@@ -98,46 +98,14 @@ fetch("produkter.json")
 //Hide Show under produktkategorin
 
 
-$(".grej")
-$(".categori").hide();
-  $(".produktkort").hide();
-
-
-  $(".grej").click(function(){
-    $(".categori").slideDown("1000") 
-    $(".produktkort").hide(); 
-    
-  });
-
-  /*var subCategories;
-  var prodName;
-
-  $(".categori").hide();
-  $(".produktkort").hide();
-
-  $("#underkategori").click(function(){
-
-    if ($(".categori").slideDown("1000")) {
-        $(".produktkort").hide();    
-  };
-
-  $("#produkt").click(function(){
-
-} else if ($(".categori").hide()) { 
-};*/
-                
-
-        
-        
-        
-    
-  
+$('#hideshow').toggle(function(){
+    $('#hideshow').text('Show');
+$('#underkategori').hide();
+}, function() {
+('#hideshow').text('Hide');
+$('#underkategori').show();
 });
-
-
-
-
-
+});
 
 
 </script>
@@ -148,9 +116,9 @@ $(".categori").hide();
 
     
 
-        <div id="Handla">Produkt</div>
+    <div id="Handla"><a href="#" id="hideshow">Produkt</a></div>
 
-    <div id="underkategori">underkategori</div>
+    <div id="underkategori"><a href="#" id="hideshow1"></a>underkategori</div>
 
     <div id="produkt">Produkter</div>
 
