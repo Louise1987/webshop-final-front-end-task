@@ -16,6 +16,20 @@
         padding: 0px;
     }
 
+    #Handla{
+        background: rgb(134, 130, 130);
+        width: 100%;
+        height: 70px;
+        /*position: fixed;*/
+        opacity: 0.5;
+        
+    }
+
+    .about{
+        color: white;
+        font-size: 20px;
+    }
+
     .grej{
         border: solid black 1px;
         margin: 10px;
@@ -30,12 +44,45 @@
         width: 150px;
     }
 
+    #footern{
+        background: black;
+        width: 100%;
+        height: 200px;
+        margin-top: 800px;
+        
+    }
+
+
+
 </style>
 
 <script>
 $(document).ready(function(){
 
+    var subCategories;
+    var prodName;
 
+    fetch("underkategorier.json") 
+            .then(function(response) {
+                return response.json();
+            })
+
+        .then(function(data) {
+            subCategories = data;
+            console.log(subCategories);
+        });
+
+        fetch("produkter.json")
+.then(function(response) {
+    return response.json();
+})
+
+.then(function(data) {
+    prodName = data;
+    console.log(prodName);
+});
+
+//******** Huvudkategori knappar **************
 
     fetch("huvudkategorier.json")
         .then(function(response) {
@@ -51,61 +98,102 @@ $(document).ready(function(){
             for (i = 0; i < mainCategories.length; i++) {
                 console.log("funka");
                 console.log(mainCategories[i].mainCategory);
-                $("#Handla").append('<button class="grej">' + mainCategories[i].mainCategory + '</button>');
-                
-            }                       
-
-    
-
-        })   
-
-        fetch("underkategorier.json") 
-            .then(function(response) {
-                return response.json();
-            })
-
-        .then(function(data) {
-            var subCategories = data;
-            console.log(subCategories);
-
-
-            for (i = 0; i < subCategories.length; i++) {
-                console.log("funka");
-                console.log(subCategories[i].subCategory);
                 //$("#Handla").append('<button class="grej">' + mainCategories[i].mainCategory + '</button>');
-                $("#underkategori").append('<div class="categori">' + subCategories[i].subCategory +'</div>');
-            }                                                           
+                var $button = $('<button id="'+mainCategories[i].id + '" class="grej">' + mainCategories[i].mainCategory + '</button>');
+                $button.on("click", function()
+            {
+                console.log(this.id);
+                $("#underkategori").empty();
+                for (i = 0; i < subCategories.length; i++) {
 
-    });
 
-fetch("produkter.json")
+                    if(subCategories[i].huvudkategori == this.id){
+                    $("#underkategori").append(subCategories[i].subCategory);
+                    }
+
+                }
+
+
+
+                $("#underkategori").slideDown();
+
+            });                    
+
+    $("#Handla").append($button);
+
+           
+
+       
+
+
+         
+$('#underkategori').hide();
+
+};
+});
+
+//******** Inloggning ************
+
+var users;
+
+
+fetch("./kunder.json")
 .then(function(response) {
     return response.json();
 })
-
-.then(function(data) {
-    var prodName = data;
-    console.log(prodName);
-
-    for (i = 0; i < prodName.length; i++) {
-        console.log("funka");
-        console.log(prodName[i].prodName);
-        $("#produkt").append('<div class="produktkort"><img class="prodimg" src="image/' + prodName[i].image + '"><h2>' + prodName[i].prodName + '</h2><div class="prodDesc">' +prodName[i].prodDesc + '<div class="pris">Pris: ' + prodName[i].prodPrice + ' sek</div>');
-
-    }
+.then(function(ourUsers) {
+    users = ourUsers;
 });
 
-//Hide Show under produktkategorin
+$(".button").show();
+$(".forgotPassword").hide();
+$(".logOutButton").hide();
 
 
-$('#hideshow').toggle(function(){
-    $('#hideshow').text('Show');
-$('#underkategori').hide();
-}, function() {
-('#hideshow').text('Hide');
-$('#underkategori').show();
+if(sessionStorage.saveUser != null ){
+    thisUserIsLoggedIn();
+}else{
+
+    $(".buttonForm").click(function(){
+        for(var i = 0; i < users.length; i++){
+            $(".button").hide();
+            $(".forgotPassword").hide();
+            $(".logOutButton").show();
+
+
+        //Om password och username stämmer loggas användare in och sparas i sessionstorage
+        if( $(".mailForm").val() == users[i].username && $(".passwordForm").val() == users[i].password){
+
+            thisUserIsLoggedIn();
+            sessionStorage.saveUser = users[i].username;
+
+            }else{
+                
+                $(".forgotPassword").show();
+            }
+        }
+    })
+}
+
+/*$(".logOutButton").click(function(){
+    sessionStorage.removeItem("saveUser");
+    location.reload();
+    $(".logOutButton").show();
+    $(".button").hide();
+    $(".forgotPassword").hide();*/
+
+
 });
-});
+
+//****** Underkategorier ***********
+fetch("underkategorier.json")
+        .then(function(response) {
+            return response.json();
+        
+        })
+           
+      
+     
 
 
 </script>
@@ -114,13 +202,31 @@ $('#underkategori').show();
 
 <body>
 
+    <div id="Handla"><a href="#" id="hideshow"></a></div>
+
+    <div class="button">
+        <input type="text" name="Mail" value="Mailadress" class="mailForm">
+        <input type="password" name="Lösenord" value=".............." class="passwordForm">
+        <input type="submit" href="#" value="Logga in" class="buttonForm">
+
+
+    </div>
+
+    <div class="logoutbutton">
+        <button class="Logga ut">Logga ut</button>
+    </div>
+
+    <div id="main"></div><div id="underkategori"><a href="#" id="hideshow1"></a></div></div>
+
+    <div id="produkt"><a href="#" id="hideshow1"></a></div>
+
     
 
-    <div id="Handla"><a href="#" id="hideshow">Produkt</a></div>
+    <div id="footern">
 
-    <div id="underkategori"><a href="#" id="hideshow1"></a>underkategori</div>
+        <div class="about">Lorem Ipsum</div>
 
-    <div id="produkt">Produkter</div>
+    </div>
 
 </body>
 
