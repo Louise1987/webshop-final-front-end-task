@@ -85,7 +85,7 @@ $(document).ready(function(){
 })
 
 .then(function(data) {
-    prodName = data;
+    produkter = data;
     console.log(prodName);
 });
 
@@ -103,7 +103,7 @@ $(document).ready(function(){
 
 
             for (i = 0; i < mainCategories.length; i++) {
-                console.log("funka");
+                //console.log("funka");
                 console.log(mainCategories[i].mainCategory);
                 //$("#Handla").append('<button class="grej">' + mainCategories[i].mainCategory + '</button>');
                 var $button = $('<button id="'+mainCategories[i].id + '" class="grej">' + mainCategories[i].mainCategory + '</button>');
@@ -112,14 +112,26 @@ $(document).ready(function(){
                 console.log(this.id);
                 $("#underkategori").empty();
                 for (i = 0; i < subCategories.length; i++) {
-
-
                     if(subCategories[i].huvudkategori == this.id){
-                    $("#underkategori").append(subCategories[i].subCategory);
+                    $("#underkategori").append('<button id="' + subCategories[i].id +'"class="prod">' + subCategories[i].subCategory + '</button>'); 
+                    
+                    }
+                    
+                    $("#produkt").html('');
+                    for (i = 0; i <produkter.length; i++) {
+                        if(produkter[i].huvudKat == this.id)
+                        $("#produkt").append("<div onclick='select(" + produkter[i].id + ")'>" + produkter[i].prodName + "</div>")
                     }
 
-                }
 
+                    
+                    
+                    
+
+                    }
+                
+
+                       
 
 
                 $("#underkategori").slideDown();
@@ -193,6 +205,8 @@ fetch("underkategorier.json")
             return response.json();
         
         })
+
+        
            
       
      
