@@ -4,6 +4,7 @@ var mainCategories = [];
 var subCategories = [];
 var saveUser;
 var cartArray = [];
+var seeCart = [];
 
 $(document).ready(function(){
     showStart();
@@ -79,6 +80,19 @@ function AddCart(prodID) {
     else $("#counter").text('');
 }
 
+function SaveCartToLocalStorage(cartArray){
+seeCart = JSON.parse(localStorage.getItem('addBasket'));
+seeCart.push(data);
+alert(seeCart);
+localStorage.setItem('addBasket', JSON.stringify(seeCart));
+
+}
+/*Funktion för att lägga in varukorg*/
+//var seeCart;
+/*var seeCart = JSON.parse(localStorage.getItem('seeCart')
+localStorage.setItem('seeCart', JSON.stringify(seeCart))*/
+//spara i array [{name: ....}]
+
 function showStart() {
     $("#content").empty();
     $('#underkat').slideUp();
@@ -141,3 +155,26 @@ function showSubCategories(mainID) {
     $('#underkat').slideDown();
     showMainProducts(mainID);
 }
+
+/*       function createShoppingSummary() {
+    /* Total price 
+    var totalPrice = 0;
+    for(var i = 0; i < shoppingCart.length; i++) {
+        totalPrice += shoppingCart[i].price;
+    }
+    var priceLabel = document.createElement("h2");
+    priceLabel.innerText = "Totalt pris: " + totalPrice + " kr";
+    
+    /* Proceed button 
+    var proceedButton = document.createElement("button");
+    proceedButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>' + "&nbsp;&nbsp;&nbsp;" + "Slutför ditt köp";
+    proceedButton.onclick = function() {
+        alert("Tack för din beställning, vi önskar dig en fin kväll! Ses snart igen =)");
+    };
+
+    var info = document.createElement("div");
+    info.appendChild(priceLabel);
+    info.appendChild(proceedButton);
+
+    return info;
+}*/

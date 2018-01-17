@@ -140,3 +140,22 @@ button {
 .red {
    color: red;
 }
+
+/*Nedan shoping bag*/
+
+#back{
+    background-color: green;
+    width: 90px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 5px;
+    float: left;
+}
+
+a {
+    color:white;
+}
+
+#addBasket{
+    color:black;
+}
