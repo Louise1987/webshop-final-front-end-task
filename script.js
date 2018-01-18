@@ -11,7 +11,7 @@ $(document).ready(function(){
     
     if(localStorage.cartArray) cartArray = JSON.parse(localStorage.cartArray);
     if(cartArray.length) $("#counter").text(cartArray.length);
-    else $("#counter").text('');
+    else $("#counter").text('basket');
     
     fetch("huvudkategorier.json") 
     .then(function(response) {
@@ -21,6 +21,7 @@ $(document).ready(function(){
         for(var i = 0; i < mainCategories.length; i++) {
             $('#mainkat').append('<button class="button" onclick="showSubCategories('+mainCategories[i].id+')">'+mainCategories[i].mainCategory+'</button>');
         }
+
     });
     
     fetch("underkategorier.json") 
@@ -81,16 +82,18 @@ function AddCart(prodID) {
 }
 
 function SaveCartToLocalStorage(cartArray){
-seeCart = JSON.parse(localStorage.getItem('addBasket'));
+seeCart = JSON.parse(localStorage.getItem('basket'));
 seeCart.push(data);
 alert(seeCart);
-localStorage.setItem('addBasket', JSON.stringify(seeCart));
+localStorage.setItem('basket', JSON.stringify(seeCart));
 
 }
+//console.log(seeCart)
 /*Funktion för att lägga in varukorg*/
-//var seeCart;
-/*var seeCart = JSON.parse(localStorage.getItem('seeCart')
+/*var seeCart;
+var seeCart = JSON.parse(localStorage.getItem('seeCart')
 localStorage.setItem('seeCart', JSON.stringify(seeCart))*/
+
 //spara i array [{name: ....}]
 
 function showStart() {
