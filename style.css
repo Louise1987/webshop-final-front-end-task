@@ -91,7 +91,8 @@ button {
 
 .about{
    color: white;
-   font-size: 20px;
+   font-size: 15px;
+   padding: 30px;
 }
 
 #content {

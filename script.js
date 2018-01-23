@@ -64,7 +64,7 @@ $(document).ready(function(){
     
     //Logga ut funktion
     $("#loggaut").click(function(){
-         sessionStorage.removeItem("saveUser");
+         sessionStorage.clear("saveUser");
          location.reload();
     });
     
@@ -84,7 +84,7 @@ $(document).ready(function(){
     });
 });
 
-// Visa alla produkter in varukorgen
+// Visa alla produkter i varukorgen
 function visaVarukorg() {
     var html = '<h1>Varukorg</h1>';
     for(var i = 0; i < cartArray.length; i++) {
@@ -139,6 +139,14 @@ function AddCart(prodID) {
     // ändra counter texten
     if(cartArray.length) $("#counter").text(cartArray.length);
     else $("#counter").text('');
+}
+
+//Admin sida
+function showAdmin(){
+    $('.ad').append();
+    $("#content").empty();
+    $('#underkat').slideUp();
+    $("#content").show('<h1>Välkommen!</h1>');
 }
 
 //Startnapp
