@@ -171,4 +171,24 @@ a {
 
 #addBasket{
     color:black;
+    margin: auto;
+}
+
+#moms{
+    margin-left: 350px;
+    border-style: solid;
+    width: 50px;
+    padding: 5px;
+}
+
+#send{
+    background-color: green;
+    width: 90px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 5px;
+    float: right;
+    padding-bottom: 5px;
+    color: white;
+
 }
