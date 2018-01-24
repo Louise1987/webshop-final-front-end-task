@@ -143,6 +143,7 @@ function AddCart(prodID) {
 
 //Admin sida
 function showAdmin(){
+    var parsesaveUser = JSON.parse(sessionStorage.saveUser);
     $('.ad').append();
     $("#content").empty();
     $('#underkat').slideUp();
