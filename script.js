@@ -5,6 +5,7 @@ var subCategories = [];
 var saveUser;
 var cartArray = [];
 
+
 $(document).ready(function(){
     showStart();
 
@@ -61,17 +62,26 @@ $(document).ready(function(){
         // Vi måste checka om $('#addBasket').length > 0
         if($('#addBasket').length > 0) visaVarukorg();
     });
+
     
     //Logga ut funktion
     $("#loggaut").click(function(){
          sessionStorage.clear("saveUser");
          location.reload();
+        
     });
+    
     
     //Logga in funktion
     $("#loggain").click(function(){
+        console.log("funka");
         var username = $("#email").val();
         var password = $("#losenord").val();
+       // $('#send').hide();
+
+    
+    
+    
         
         for(var i = 0; i < Users.length; i++) {
             if(username == Users[i].email && password == Users[i].password) {
@@ -81,8 +91,11 @@ $(document).ready(function(){
         }
         
         alert('Fel användarnamn eller lösenord!');
+
     });
+    
 });
+
 
 // Visa alla produkter i varukorgen
 function visaVarukorg() {
@@ -127,7 +140,7 @@ function taBort(prodID) {
 
 
 //lägga till i kundvagn
-//och spara den till localStorag
+//och spara den till localStorage
 function AddCart(prodID) {
     // push produkt-id till cartArray
     cartArray.push(prodID);
@@ -141,6 +154,21 @@ function AddCart(prodID) {
     else $("#counter").text('');
 }
 
+//Skicka order
+//Inloggad state
+send = function(){
+    console.log("hej");
+if (sessionStorage.saveUser == null){
+alert ("För att skicka order måste ni vara inloggad");
+} else {
+    cartArray = [];
+    location.reload;
+    //cartArray.clear();
+
+}
+}; 
+
+
 //Admin sida
 function showAdmin(){
     $('.ad').append();
@@ -149,7 +177,7 @@ function showAdmin(){
     $("#content").show('<h1>Välkommen!</h1>');
 }
 
-//Startnapp
+//Startknapp
 function showStart() {
     $("#content").empty();
     $('#underkat').slideUp();
@@ -215,3 +243,6 @@ function showSubCategories(mainID) {
     $('#underkat').slideDown();
     showMainProducts(mainID);
 }
+
+
+

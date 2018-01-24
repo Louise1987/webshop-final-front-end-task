@@ -169,6 +169,21 @@ a {
     color:white;
 }
 
-#addBasket{
-    color:black;
+#send{
+    float: right;
+    height: 50px;
+    width: 90px;
+    background: green;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
 }
+
+#switch{
+    background: grey;
+    height: 65px;
+}
+
+/*#addBasket{
+    color:black;
+}*/
