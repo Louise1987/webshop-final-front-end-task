@@ -25,6 +25,8 @@ $(document).ready(function(){
 
     });
 
+    
+
     //hämtar Underkategorier
     fetch("underkategorier.json") 
     .then(function(response) {
@@ -139,6 +141,8 @@ function taBort(prodID) {
 }
 
 
+
+
 //lägga till i kundvagn
 //och spara den till localStorage
 function AddCart(prodID) {
@@ -156,7 +160,21 @@ function AddCart(prodID) {
 
 //Skicka order
 //Inloggad state
-send = function(){
+
+
+
+function send(){
+if (sessionStorage.saveUser == null) {
+    alert("För att skicka order måste ni vara inloggad");
+} else {
+    cartArray = [];
+    localStorage.basket = 
+    JSON.stringify(cartArray);
+    alert("Tack för din beställning!");
+}
+};
+
+/*send = function(){
     console.log("hej");
 if (sessionStorage.saveUser == null){
 alert ("För att skicka order måste ni vara inloggad");
@@ -166,8 +184,7 @@ alert ("För att skicka order måste ni vara inloggad");
     //cartArray.clear();
 
 }
-}; 
-
+}; */
 
 //Admin sida
 function showAdmin(){
