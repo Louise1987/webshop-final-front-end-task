@@ -25,8 +25,6 @@ $(document).ready(function(){
 
     });
 
-    
-
     //hämtar Underkategorier
     fetch("underkategorier.json") 
     .then(function(response) {
@@ -81,10 +79,6 @@ $(document).ready(function(){
         var password = $("#losenord").val();
        // $('#send').hide();
 
-    
-    
-    
-        
         for(var i = 0; i < Users.length; i++) {
             if(username == Users[i].email && password == Users[i].password) {
                 sessionStorage.saveUser = username;
@@ -101,7 +95,8 @@ $(document).ready(function(){
 
 // Visa alla produkter i varukorgen
 function visaVarukorg() {
-    var html = '<h1>Varukorg</h1>';
+    var total = 0;
+    var html = '<h1 style="width: 100%;">Varukorg</h1>';
     for(var i = 0; i < cartArray.length; i++) {
         for(var j = 0; j < Products.length; j++) {
             if(cartArray[i] == Products[j].id) {
@@ -112,11 +107,21 @@ function visaVarukorg() {
                 html += '<h4 class="blue">'+Products[j].prodName+'</h4>';
                 html += '<button class="prodButton" onclick="taBort('+Products[j].id+')">Ta bort</button>';
                 html += '</div>';
+                total += Products[j].prodPrice;
                 break;
             }
         }
     }
     $('#addBasket').html(html);
+    
+    //Moms och total kostnad
+    html = '';
+    if(total) {
+        html += 'Totalpris: '+total+' kr<br />';
+        html += 'Frakt: 55 kr<br />';
+        html += 'Summa: '+(total + 55)+' kr';        
+    } else html = 'Varukorgen är tom';
+    $('.cost').html(html);    
 }
 
 
@@ -160,39 +165,16 @@ function AddCart(prodID) {
 
 //Skicka order
 //Inloggad state
-
-
-
 function send(){
 if (sessionStorage.saveUser == null) {
     alert("För att skicka order måste ni vara inloggad");
 } else {
     cartArray = [];
-    localStorage.basket = 
-    JSON.stringify(cartArray);
+    localStorage.basket = JSON.stringify(cartArray);
+    window.location.reload();
     alert("Tack för din beställning!");
 }
 };
-
-/*send = function(){
-    console.log("hej");
-if (sessionStorage.saveUser == null){
-alert ("För att skicka order måste ni vara inloggad");
-} else {
-    cartArray = [];
-    location.reload;
-    //cartArray.clear();
-
-}
-}; */
-
-//Admin sida
-function showAdmin(){
-    $('.ad').append();
-    $("#content").empty();
-    $('#underkat').slideUp();
-    $("#content").show('<h1>Välkommen!</h1>');
-}
 
 //Startknapp
 function showStart() {
@@ -200,6 +182,7 @@ function showStart() {
     $('#underkat').slideUp();
     $("#content").append('<h1>Välkommen!</h1>');
 }
+
 
 //Visa huvudprodukter knapp
 function showMainProducts(mainID) {
@@ -260,6 +243,3 @@ function showSubCategories(mainID) {
     $('#underkat').slideDown();
     showMainProducts(mainID);
 }
-
-
-

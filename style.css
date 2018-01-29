@@ -116,6 +116,8 @@ button {
         flex-flow: row wrap;
         align-items: flex-start;
         min-height: 200px;
+        color:black;
+        margin: auto;
 }
 
 .title {
@@ -169,10 +171,6 @@ a {
     color:white;
 }
 
-#addBasket{
-    color:black;
-    margin: auto;
-}
 
 #moms{
     margin-left: 350px;
@@ -191,4 +189,63 @@ a {
     padding-bottom: 5px;
     color: white;
 
+}
+
+/*Nedan adminsida*/
+
+#ad{
+    background-color: green;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 5px;
+    float: left;
+    padding-bottom: 5px;
+}
+
+
+.ad-subject{
+    margin-left: 10px;
+    margin-top: 60px;
+    height: 100px;
+    color: white;
+}
+
+.start{
+    width: 100px;
+    height: 50px;
+    background: grey;
+    padding: 20px;
+    
+  
+}
+
+.kund{
+    width: 100px;
+    height: 50px;
+    background: grey;
+    padding: 20px;
+    
+}
+
+.order{
+    width: 100px;
+    height: 50px;
+    background: grey;
+    padding: 20px;
+    
+}
+
+.epost{
+    width: 100px;
+    height: 50px;
+    background: grey;
+    padding: 20px;
+    
+}
+
+#shop{
+    font-size: 20px;
+    background: rgb(42, 89, 100);
+    padding: 5px;
 }

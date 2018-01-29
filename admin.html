@@ -3,10 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <!--<script src="script.js"></script>-->
+    
+    <script>
+$(document).ready(function(){
+
+        console.log ("user", sessionStorage.user)
+
+        var rattuser = "Louise";
+        var rattpassword = "1234";
+
+
+        $('.ad-subject').hide();
+        $('first').hide();
+        $('.kunder').hide();
+        $('.ord').hide();
+        $('.post').hide();
+
+
+        $('#welcome').hide();
+
+        $('.loggain').click(function(){
+                console.log($('.username').val());
+
+                var inputuser = $('.username').val()
+                var inputpassword = $('.userpassword').val()
+
+                 //Hämtar kunder
+        fetch("kunder.json") 
+    .then(function(response) {
+        return response.json();
+        for(var i = 0; i < Users.length; i++) {
+        $('.kunder').append("<li>(" + userList[i].id + ")'></li>")
+        }
+        $('.kund').click(function(){
+        $('.kunder').show();
+        });
+
+    });
+
+
+                if (rattuser == inputuser){
+            console.log("rätt user");
+            //$(".ad-subject").show();
+            
+            if (rattpassword == inputpassword){
+                console.log("rätt lösenord");
+                $('#welcome').show();
+                $('#loginform').hide();
+
+                $(".ad-subject").show();
+
+                $('.start').click(function(){
+                        $('.first').show();
+                        $('.kunder').hide();
+                        $('.ord').hide();
+                        $('.post').hide();
+                });
+
+                $('.kund').click(function(){
+                        $('.kunder').show();
+                        $('.ord').hide();
+                        $('.post').hide();
+                        $('first').hide();
+                });
+
+                $('.order').click(function(){
+                        $('.ord').show();
+                        $('.post').hide();
+                        $('.first').hide();
+                        $('.kunder').hide();
+                });
+
+                $('.epost').click(function(){
+                        $('.post').show();
+                        $('.first').hide();
+                        $('.kunder').hide();
+                        $('.ord').hide();
+                });
+                        sessionStorage.user = 12;
+//show /hide funktion
+                  
+
+                
+
+
+                } else {
+                console.log("fel lösenord");
+                alert("Fel lösenord");
+                $(".ad-subject").hide();
+                
+                
+                }
+
+                } else {
+                console.log("fel");
+
+                $(".ad-subject").hide();
+
+                
+            
+                }
+
+        });
+
+                $('.loggaut').click(function(){
+                        console.log("loggar ut");
+        
+    
+                        sessionStorage.clear();
+                        location.reload();
+
+                        $(".ad-subject").hide();
+    
+                });
+
+                //function showMainButton(){
+
+
+               
+
+       
+
+
+              
+
+        
+});
+
+                
+</script>
+
 </head>
 <body>
+
+                <div id="loginform">
+                                <input type="text" class="username">
+                                <input type="text" class="userpassword">
+                                <button class="loggain">Logga in</button>
+                            </div>
+                        
+                            <div id="welcome">
+                                <h1>Välkommen!</h1>
+                                <p className="userId"></p>
+                                <button class="loggaut">Logga ut</button>
+                            </div>
+
+                            
+      
+<div id="admin">
+        <div class="ad-subject"> <a href="#" class="start">Start</a> | <a href="#" class="kund">Kundlista</a> | <a href="#" class="order">Orderlista</a> | <a href="#" class="epost">Epost lista</a></div> 
+</div>
+        <div class="first">Admin sida</div>
+         
+         <div class="kunder">Kunder</div>
+ 
+         <div class="ord">Order</div>
+         
+         <div class="post">Lista</div>
+
+
+         <button id="shop">
+                <a href="index.html">Till e-handel></a>
+         </button>
+         
+
     
 </body>
 </html>
