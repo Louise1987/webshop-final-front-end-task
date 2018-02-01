@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <script defer src="/static/fontawesome/fontawesome-all.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--<script src="script.js"></script>-->
     
     <script>
 $(document).ready(function(){
+        
 
         console.log ("user", sessionStorage.user)
 
@@ -32,19 +35,20 @@ $(document).ready(function(){
                 var inputuser = $('.username').val()
                 var inputpassword = $('.userpassword').val()
 
-                 //Hämtar kunder
-        fetch("kunder.json") 
-    .then(function(response) {
-        return response.json();
-        for(var i = 0; i < Users.length; i++) {
-        $('.kunder').append("<li>(" + userList[i].id + ")'></li>")
-        }
-        $('.kund').click(function(){
-        $('.kunder').show();
+        
+
+        $.getJSON('kunder.json', function(data){
+                        kunder = data;
+                        console.log(kunder);
+                $(".kund").click(function(){
+                        $('.kunder').empty();
+                        for(var i = 0; i < kunder.length; i++) {
+                                $('.kunder').append("<ul><li>" + kunder[i].email + "</li><ul>");
+                        }
+                });
         });
-
-    });
-
+ 
+       
 
                 if (rattuser == inputuser){
             console.log("rätt user");
@@ -85,10 +89,6 @@ $(document).ready(function(){
                         $('.ord').hide();
                 });
                         sessionStorage.user = 12;
-//show /hide funktion
-                  
-
-                
 
 
                 } else {
@@ -120,17 +120,6 @@ $(document).ready(function(){
                         $(".ad-subject").hide();
     
                 });
-
-                //function showMainButton(){
-
-
-               
-
-       
-
-
-              
-
         
 });
 
@@ -155,8 +144,10 @@ $(document).ready(function(){
                             
       
 <div id="admin">
-        <div class="ad-subject"> <a href="#" class="start">Start</a> | <a href="#" class="kund">Kundlista</a> | <a href="#" class="order">Orderlista</a> | <a href="#" class="epost">Epost lista</a></div> 
+        <div class="ad-subject"> <a href="#" class="start">Start</a> | <a href="#" oncklick="kundLista()" class="kund">Kundlista</a> | <a href="#" class="order">Orderlista</a> | <a href="#" class="epost">Epost lista</a></div> 
 </div>
+
+<div id="sub">
         <div class="first">Admin sida</div>
          
          <div class="kunder">Kunder</div>
@@ -164,6 +155,7 @@ $(document).ready(function(){
          <div class="ord">Order</div>
          
          <div class="post">Lista</div>
+        </div>
 
 
          <button id="shop">
