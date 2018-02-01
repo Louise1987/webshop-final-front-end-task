@@ -90,6 +90,7 @@ $(document).ready(function(){
 
     });
 
+
     // Detta är för footer
     
     $(".div2").hide();
@@ -113,6 +114,7 @@ $(document).ready(function(){
         $(".div2").hide();
     });
     
+
 });
 
 
